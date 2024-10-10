@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Quantico-Immo</title>
+    <!-- <link rel="stylesheet" href="../src/assets/css/output.css"> -->
+    <link rel="stylesheet" href="../dist/style.css">
+    <style>
+        @keyframes fade-in-bottom {
+            0% {
+                -webkit-transform: translateY(50px);
+                        transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-in-left {
+              0% {
+                   -webkit-transform: translateX(-50px);
+                    transform: translateX(-50px);
+                    opacity: 0;
+                } 
+                100% {
+                     -webkit-transform: translateX(0);
+                         transform: translateX(0);
+                        opacity: 1;
+                            }
+        }
+        body {
+          font-family: 'Poppins', sans-serif;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        /* Top-bar Styles */
+        .top-bar {
+        background-color: #ffffff; /* Couleur blanche */
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre portée pour effet de profondeur */
+        }
+
+        .top-bar .logo {
+        font-size: 22px;
+        color: #2c3e50; /* Texte sombre pour contraster avec le fond blanc */
+        font-weight: bold;
+        }
+
+        .top-bar .menu {
+        display: flex;
+        gap: 20px;
+        }
+
+        .top-bar .menu a {
+            font-weight: bold;
+            color: #2c3e50; /* Couleur des liens sombres */
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .top-bar .menu a:hover {
+        background-color: #1e293b;
+        color: #fff;
+        border-radius: 5px;
+        }
+
+        #bord{
+            margin-top: 150px;
+            margin-bottom: 50px;
+        }
+
+        .bord3{
+            margin-right: 150px;
+            width: 400px;
+        }
+
+        .bord3 h1{
+            font-size: 25px;
+            color: #1e293b;
+        }
+
+        p{
+            letter-spacing: 1.5px;
+        }
+
+        .buy2{
+            margin-bottom: 0px;
+        }
+
+        .menu-icon {
+        display: none;
+        font-size: 28px;
+        color: #2c3e50; /* Icône sombre pour correspondre au texte */
+        cursor: pointer;
+        }
+
+        #fonction{
+            height: max-content;
+        }
+
+        .fonc1{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .rond{
+            background-color: #1e293b;
+            margin-left: 120px;
+        }
+
+        #pricing{
+            height: max-content;
+            margin-top: 100px;
+        }
+        .prix{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .prix1 p{
+            margin-bottom: 25px;
+        }
+
+        #footer{
+            margin-top: 150px;
+            height: max-content;
+        }
+
+        /* Responsive Menu Styles */
+        @media screen and (max-width: 768px) {
+            .top-bar .menu {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff; /* Garde le menu blanc */
+                flex-direction: column;
+                align-items: center;
+                display: none;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .top-bar .menu a {
+                padding: 15px;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #e0e0e0; /* Lignes de séparation légères */
+            }
+
+            .top-bar.responsive .menu {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .bord2{
+                display: block;
+                margin-inline: 20px;
+            }
+
+            .bord3{
+                width: 350px;
+            }
+
+            .buy2{
+                margin-top: 20px;
+            }
+
+            .image{
+                width: 350px;
+                margin-bottom: 20px;
+            }
+
+            .fonc1{
+                display: block;
+                margin-left: 39px;
+                margin-bottom: 50px;
+            }
+
+            .fonc11{
+                margin-bottom: 50px;
+            }
+
+            #pricing{
+                margin-top: 100px;
+                margin-bottom: 100px;
+            }
+
+            .prix{
+                display: block;
+            }
+
+            .prix1{
+                width: 350px;
+                margin-left: 20px;
+            }
+
+            #footer{
+                margin-top: 100px;
+            }
+
+            .footer1{
+                display: block;
+                margin-bottom: 25px;
+            }
+
+            .footer2{
+                display: block;
+                margin-left: 25px;
+            }
+
+            .foot{
+                margin-top: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar " id="topBar">
+        <div class="logo w-[200px]">
+            <img src="./assets/images/qm_logo-removebg-preview.png" alt="">
+        </div>
+        <div class="menu" id="menu">
+          <a href="./index.html">Accueil</a>
+          <a href="#pricing">Prix</a>
+          <a href="#fonction">Fonctionnalités</a>
+          <a href="./quantico.html">Quantico-Immo</a>
+          <!-- <a href="./index.html/#contact">Contact</a> -->
+        </div>
+        <span class="menu-icon" id="menuIcon" onclick="toggleMenu()">&#9776;</span>
+    </div>
+    
+
+    <section id="bord" class="container mx-auto p-4 mt-10 h-screen w-full">
+        <div class="flex justify-between bord2">
+            <div class="w-[600px] mt-48  rounded-2xl border-8 border-black image" style="animation: fade-in-left 3s;">
+                <img src="./assets/images/TB-quantico.PNG" alt="" class="rounded-2xl mb-10 border-black">
+                <a href="./form.html" class="buy font-bold text-gray-800 border border-gray-800 md:ml-3  py-4 px-4 rounded-full hover:bg-slate-800 hover:text-white" style="animation: fade-in-left 3s;">Achetez</a>
+                <a href="./assets/Guide d'utilisation de Quantico-Immo.pdf"  class="buy2 font-bold  text-gray-800 border border-gray-800 md:ml-3  py-4 px-12 rounded-full hover:bg-slate-800 hover:text-white"
+                download="Guide d'utilisation de Quantico-Immo.pdf">
+                    <button>Guide d'utilisation</button>
+                </a>
+            </div>
+
+            <div class="w-[350px] bord3" style="animation: fade-in-bottom 3s;">
+                <h1 class="font-bold text-2xl">Découvrez QUANTICO-IMMO notre logiciel de gestion locative tout en un !</h1>
+                <p class="text-gray-500 mt-4">
+                    Découvrez notre application desktop de gestion locative, conçue pour faciliter la gestion de vos biens immobiliers. 
+                    Gérer vos propriétés, maisons et locataires n'a jamais été aussi simple. Avec des fonctionnalités avancées telles 
+                    que le suivi des charges, la gestion des paiements de loyers et une facturation intuitive, notre solution vous aide 
+                    à optimiser votre temps et à améliorer votre efficacité. Transformez votre expérience de gestion locative avec une 
+                    interface conviviale et des outils performants, adaptés aux besoins des propriétaires et des gestionnaires immobiliers. 
+                    Essayez-la dès aujourd'hui et simplifiez votre quotidien !
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="fonction" class="mt-10 container mx-auto p-4 w-full h-max">
+        <!-- <h1 class="text-orange-500 font-bold text-lg underline decoration-slate-400 decoration-8 text-center md:mr-96 mt-6">FONCTIONNALITES</h1> -->
+        <h1 class="font-bold mt-20 text-4xl text-gray-800 leading-tight pt-4 pb-10 text-center">Des fonctionnalités innovantes</h1>
+        <div class="fonc1">
+            <div class=" w-[300px] mb-10">
+                <div class="h-14 w-14 text-white bg-sky-400 text-xl rounded-full text-center pt-3.5 rond">
+                    <i class="fa-solid fa-city px-2"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mt-2 mb-4">Gestion des propriétés</h3>
+
+                <p>
+                    Suivez l’ensemble de vos biens immobiliers, des appartements
+                    aux maisons, avec des informations complètes et mises à jour.
+                </p>
+            </div>
+            <div class="w-[300px] mb-10">
+                <div class="h-14 w-14 text-white bg-sky-400 text-xl rounded-full text-center pt-3.5 rond">
+                    <i class="fa-solid fa-house px-2"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mt-2 mb-4">Gestion des maisons</h3>
+
+                <p>
+                    Visualisez, administrez et maintenez l’inventaire de toutes vos
+                    maisons avec des détails sur chaque bien.
+                </p>
+            </div>
+            <div class="w-[300px] mb-10">
+                <div class="h-14 w-14 text-white bg-sky-400 text-xl rounded-full text-center pt-3.5 rond">
+                    <i class="fa-solid fa-user px-2"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mt-2 mb-4">Gestion des locataires</h3>
+
+                <p>
+                    Gardez un suivi précis des informations des locataires, des
+                    contrats et des états des lieux.
+                </p>
+            </div>
+        </div>
+
+        <div class="fonc1 fonc11">
+            <div class=" w-[300px] mb-10">
+                <div class="h-14 w-14 text-white bg-sky-400 text-xl rounded-full text-center pt-3.5 rond">
+                    <i class="fa-solid fa-money-bill px-2"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mt-2 mb-4">Gestion des charges</h3>
+
+                <p>
+                    Gérez facilement les charges liées à chaque propriété, tout en
+                    ayant une vision claire des dépenses.
+                </p>
+            </div>
+            <div class="w-[300px] mb-10">
+                <div class="h-14 w-14 text-white bg-sky-400 text-xl rounded-full text-center pt-3.5 rond">
+                    <i class="fa-solid fa-dollar px-2"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mt-2 mb-4">Encaissement des loyers</h3>
+
+                <p>
+                    Gardez une trace de chaque transaction, suivez les paiements,
+                    et générez des reçus.
+                </p>
+            </div>
+            <div class="w-[300px] mb-10">
+                <div class="h-14 w-14 text-white bg-sky-400 text-xl rounded-full text-center pt-3.5 rond">
+                    <i class="fa-solid fa-file-lines px-2"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mt-2 mb-4">Gestion des documents et contrats</h3>
+
+                <p>
+                    Tous vos documents et contrats centralisés au
+                    même endroit pour un accès rapide et sécurisé.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="mt-10 container mx-auto p-4 w-full h-screen">
+        <div class="prix">
+            <div class="w-[600px] prix1">
+                <img src="./assets/images/paiement.jpg" alt="" class="rounded-2xl">
+            </div>
+
+            <div class="w-[500px] prix1">
+                <p class="font-bold mt-20 text-4xl text-gray-800 leading-tight">
+                    Pas de souscription à un abonnement mensuel, ni à une licence annuelle !
+                    <br><br>
+                    Un paiement unique et <span class="text-orange-500">à vie.</span> 
+                    <br><br>
+                    tout ca au prix de <span class="text-orange-500">$110 / 70.000 XAF</span>
+                </p>
+
+                <a href="./form.html" class="buy2 font-bold text-gray-800 border border-gray-800 md:ml-3  py-4 px-12 rounded-full hover:bg-slate-800 hover:text-white" style="animation: fade-in-left 3s;">Passez à l'action</a>
+                                  
+            </div>
+        </div>
+    </section>
+
+
+
+    <!------------- Footer ------------->
+    <section class="mt-20 md:h-screen h-max container mx-auto mb-10 grid grid-cols-1" style="height: 80vh;" id="footer">
+        <div class="grid grid-cols-2 footer1">
+            <div class=" w-[200px]">
+                <img src="./assets/images/qm_logo.jpg" alt="">
+            </div>
+            <div class="mt-4">
+                <h3 class="text-xl font-bold">Abonnez-vous à notre newsletter</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <input type="email" placeholder="Entrez votre email" class="border-none">
+                    <button class="font-bold text-gray-800 border  ml-10 border-gray-800 md:ml-24 mt-4 py-2 px-12 rounded-full hover:bg-slate-800 hover:text-white"><a href="#">S'inscrire</a></button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="flex flex-row mb-8 footer2">
+            <div class="mx-auto grid grid-cols-1 foot">
+                <h4 class="text-xl font-bold">Entreprise</h4>
+                <a href="#" class="hover:text-orange-500">Accueil</a>
+                <a href="#" class="hover:text-orange-500">A propos de nous</a>
+                <a href="#" class="hover:text-orange-500">Nos services</a>
+                <a href="#" class="hover:text-orange-500">Quantico-Immo</a>
+            </div>
+            <div class="mx-auto grid grid-cols-1 foot">
+                <h4 class="text-xl font-bold">Ressources</h4>
+                <a href="#" class="hover:text-orange-500">FAQ</a>
+                <a href="#" class="hover:text-orange-500">Politique de confidentialité</a>
+                <a href="#" class="hover:text-orange-500">Nous contacter</a>
+            </div>
+            <div class="mx-auto grid grid-cols-1 foot">
+                <h4 class="text-xl font-bold">Réseaux sociaux</h4>
+                <a href="#"><i class="fa-brands fa-facebook px-2"></i>Facebook</a>
+                <a href="#"><i class="fa-brands fa-instagram px-2"></i>Instagram</a>
+                <a href="#"><i class="fa-brands fa-linkedin px-2"></i>LinkedIn</a>
+            </div>
+        </div>
+        <hr>
+        <div>
+            Copyright © QUANTICO MEDIA 2024 | Designed by Quantico-media
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+          var topBar = document.getElementById("topBar");
+          topBar.classList.toggle("responsive");
+        }
+    </script>
+</body>
+</html>

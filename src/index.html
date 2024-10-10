@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Quantico-media | Accueil</title>
+    <!-- <link rel="stylesheet" href="../src/assets/css/output.css"> -->
+    <link rel="stylesheet" href="../dist/style.css">
+</head>
+<body>
+   <style>
+        @keyframes fade-in-bottom {
+            0% {
+                -webkit-transform: translateY(50px);
+                        transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-in-left {
+              0% {
+                   -webkit-transform: translateX(-50px);
+                    transform: translateX(-50px);
+                    opacity: 0;
+                } 
+                100% {
+                     -webkit-transform: translateX(0);
+                         transform: translateX(0);
+                        opacity: 1;
+                            }
+        }
+
+        @keyframes reveal {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        body {
+          font-family: 'Poppins', sans-serif;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        /* Top-bar Styles */
+        .top-bar {
+        background-color: #ffffff; /* Couleur blanche */
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre portée pour effet de profondeur */
+        }
+
+        .top-bar .logo {
+        font-size: 22px;
+        color: #2c3e50; /* Texte sombre pour contraster avec le fond blanc */
+        font-weight: bold;
+        }
+
+        .top-bar .menu {
+        display: flex;
+        gap: 20px;
+        }
+
+        .top-bar .menu a {
+            font-weight: bold;
+            color: #2c3e50; /* Couleur des liens sombres */
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .top-bar .menu a:hover {
+        background-color: #1e293b;
+        color: #fff;
+        border-radius: 5px;
+        }
+
+        .menu-icon {
+        display: none;
+        font-size: 28px;
+        color: #2c3e50; /* Icône sombre pour correspondre au texte */
+        cursor: pointer;
+        }
+
+        #footer{
+            margin-top: 0px;
+            height: max-content;
+        }
+
+        /* Responsive Menu Styles */
+        @media screen and (max-width: 768px) {
+            .top-bar .menu {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff; /* Garde le menu blanc */
+                flex-direction: column;
+                align-items: center;
+                display: none;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .top-bar .menu a {
+                padding: 15px;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #e0e0e0; /* Lignes de séparation légères */
+            }
+
+            .top-bar.responsive .menu {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            #footer{
+                margin-top: 100px;
+            }
+
+            .footer1{
+                display: block;
+                margin-bottom: 25px;
+            }
+
+            .footer2{
+                display: block;
+                margin-left: 25px;
+            }
+
+            .foot{
+                margin-top: 25px;
+            }
+        }
+   </style>
+
+    <!------------- Header ------------->
+
+    <div class="top-bar" id="topBar">
+        <div class="logo w-[200px]">
+            <img src="./assets/images/qm_logo-removebg-preview.png" alt="">
+        </div>
+        <div class="menu" id="menu">
+          <a href="./index.html">Accueil</a>
+          <a href="#about">À propos</a>
+          <a href="#services">Nos services</a>
+          <a href="./quantico.html">Quantico-Immo</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <span class="menu-icon" id="menuIcon" onclick="toggleMenu()">&#9776;</span>
+    </div>
+
+    <!-- <header>
+
+         
+        <div class="container mx-auto flex justify-between items-center w-full h-8 border-b py-8">
+            <div class="text-slate-600">
+                <i class="fa-solid fa-phone pr-2"> +237 674 79 36 96</i>
+                <i class="fa-regular fa-envelope"></i> quanticomediaone@gmail.com
+            </div>
+
+            <div class="text-slate-600">
+                <i class="fa-brands fa-facebook px-2"></i>
+                <i class="fa-brands fa-twitter px-2"></i>
+                <i class="fa-brands fa-linkedin px-2"></i>
+                <i class="fa-brands fa-instagram px-2"></i>
+                <i class="fa-brands fa-youtube px-2"></i>
+            </div>
+        </div>
+
+       <div class="container mx-auto flex justify-between items-center w-full">
+        <div>
+            <h1 class="w-[200px]">
+                <img src="../src/assets/images/qm_logo.jpg" alt="Logo">
+            </h1>
+        </div>
+
+        <div class="top-bar" id="topBar">
+            <ul class="menu lg:flex lg:justify-between lg:items-center lg:font-bold lg:text-xl lg:text-slate-900" id="menu">
+                <li class="px-4 hover:text-orange-500 active:underline, decoration-orange-500"><a href="#">Accueil</a></li>
+                <li class="px-4 hover:text-orange-500"><a href="#">A propos</a></li>
+                <li class="px-4 hover:text-orange-500"><a href="#">Nos Services</a></li>
+                <li class="px-4 hover:text-orange-500"><a href="#">Tarifs</a></li>
+                <li class="px-4 hover:text-orange-500"><a href="#">Contact</a></li>
+                <!-- <li><a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a></li> 
+            </ul>
+            <span class="menu-icon" id="menuIcon" onclick="toggleMenu()">&#9776;</span>
+        </div>
+       </div>
+    </header> -->
+
+    <div id="hero" class="h-[100vh] mt-10 pb-8 w-full bg-cover bg-center" style="background-image: url(../src/assets/images/pexels-jessica-lewis-🦋-thepaintedsquare-593324.jpg);">
+       <div data-aos="fade-right">
+            <div class="ml-16 pt-24 md:w-3/5 w-3/4">
+                <h1 class="text-white text-xl font-bold underline decoration-slate-400 decoration-solid decoration-8" style="animation: fade-in-left 3s;">Bienvenue à Quantico Media</h1>
+
+                <h1 class="font-bold text-6xl md:text-7xl text-slate-700 leading-tight pt-4 pb-16" style="animation: fade-in-bottom 3s;">
+                    Meilleure agence de Marketing digital
+                </h1>
+
+                <div>
+                    <button class="border px-12 py-4 rounded-full font-bold bg-orange-300 hover:bg-inherit hover:text-slate-800"><a href="#">Trouver un expert</a></button>
+                    <button class="md:ml-4 mt-2 border px-12 py-4 rounded-full font-bold text-white hover:bg-white hover:text-black"><a href="#">Conatactez nous</a></button>
+                </div>
+            </div>
+       </div>
+    </div>
+
+    <!------------- About ------------->
+
+    <div id="about" class="container mx-auto pb-10 w-full md:h-screen mt-16 md:flex md:justify-between h-max">
+
+        <div class="mx-20 w-[600px]" style="animation: reveal linear; animation-timeline: view(); animation-range-start: cover 0%; animation-range-end: cover 50%;">
+            <img class="h-3/4 object-cover rounded-2xl" src="../src/assets/images/pexels-antoni-shkraba-4348403.jpg" alt="operation">
+        </div>
+
+        <div class="md:w-1/2 mx-20 w-3/4">
+            <h1 class="text-orange-500 font-bold text-lg underline decoration-slate-400 decoration-8 text-center md:mr-96 mt-6">A PROPOS DE NOUS</h1>
+            <h1 class="font-bold text-4xl text-gray-800 leading-tight pt-4 pb-10">Votre agence digitale 360°</h1>
+
+            <p class="text-gray-500 pb-6">
+                Notre agence de marketing, accompagne ses nombreux clients digitaux sur leurs projets avec des résultats. Quelque soit 
+                votre projet, notre agence porte une attention continue à l’excellence 
+                technique et au retour sur investissement dans notre accompagnement en marketing digital. <br>
+                Spécialiste des solutions digitales: 
+                Identité visuelle et de marque – Brand content – Création de site vitrine & boutique en ligne – 
+                Montage vidéo – Stratégie Digitale – Référencement Naturel – Référencement Payant – Social Média
+            </p>
+
+            <div class="md:flex md:justify-between md:items-center grid grid-cols-2 gap-2">
+                <div class="bg-slate-100 p-5 shadow-2xl rounded-full size-32 text-center">
+                    <i class="fa-solid fa-user-secret text-orange-500 text-4xl pb-2"></i>
+                    <h1 class="text-gray-800 font-bold">Qualifiés</h1>
+                    <p class="text-orange-500 font-bold text-xs">Experts</p>
+                </div>
+
+                <div class="bg-slate-100 p-5 shadow-2xl rounded-full size-32 md:ml-4 text-center">
+                    <i class="fa-solid fa-camera text-orange-500 text-4xl pb-2"></i>
+                    <h1 class="text-gray-800 font-bold">Appareils</h1>
+                    <p class="text-orange-500 font-bold text-xs">Dernier cri</p>
+                </div>
+
+                <div class="bg-slate-100 p-5 shadow-2xl rounded-full size-32 md:ml-4 text-center">
+                    <i class="fa-solid fa-chart-pie text-orange-500 text-4xl pb-2"></i>
+                    <h1 class="text-gray-800 font-bold">Analyse</h1>
+                    <p class="text-orange-500 font-bold text-xs">Stratégique</p>
+                </div>
+
+                <div class="bg-slate-100 p-5 shadow-2xl rounded-full size-32 md:ml-4 text-center">
+                    <i class="fa-solid fa-money-bill-trend-up text-orange-500 text-4xl pb-2"></i>
+                    <h1 class="text-gray-800 font-bold">Explosion</h1>
+                    <p class="text-orange-500 font-bold text-xs">du CA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------- services ------------->
+
+    <div id="services" class="w-full text-center mb-16 h-max">
+        <h1 class="text-orange-500 font-bold underline decoration-slate-400 decoration-8 pb-4">NOS SERVICES</h1>
+        <h1 class="font-bold text-4xl text-gray-800 leading-tight pt-4 pb-10">Des Services de qualité premium</h1>
+
+        <div class=" container md:grid-cols-3 grid grid-cols-1 mx-auto md:px-28 px-12">
+
+            <div class="w-[300px] h-[450px] bg-slate-100 overflow-hidden hover:translate-y-3 shadow-2xl hover:cursor-pointer transition-all ease-in-out duration-700 rounded-xl mb-8">
+                <div class="w-full h-[150px]">
+                    <img src="../src/assets/images/pexels-pixabay-270637.jpg" alt="seo">
+                </div>
+                <h1 class="text-2xl md:px-2 text-gray-800 md:py-1 mt-16 pb-1 pt-4 font-bold">Referencement SEO</h1>
+                <p class="md:px-2 md:py-1">
+                    le SEO aide une entreprise à se démarquer de la concurrence en ligne. 
+                    En apparaissant en haut des résultats de recherche, une entreprise peut capter l'attention des 
+                    utilisateurs avant même qu'ils ne voient les annonces payantes ou d'autres concurrents.
+                </p>
+            </div>
+
+            <div class="w-[300px] h-[450px] bg-slate-100 overflow-hidden hover:translate-y-3 shadow-2xl hover:cursor-pointer transition-all ease-in-out duration-700 rounded-xl mb-8">
+                <div class="w-full h-[150px]">
+                    <img src="../src/assets/images/pexels-timur-saglambilek-185576.jpg" alt="seo">
+                </div>
+                <h1 class="text-2xl md:px-2 text-gray-800 md:py-1 mt-16 pb-1 pt-4 font-bold">Analyse de données</h1>
+                <p class="md:px-2 md:py-1">
+                    Cela peut aider l'entreprise à prendre des décisions plus éclairées, à repérer des tendances importantes, 
+                    à comprendre les besoins des clients et à améliorer ses opérations.
+                </p>
+            </div>
+
+            <div class="w-[300px] h-[450px] bg-slate-100 overflow-hidden hover:translate-y-3 shadow-2xl hover:cursor-pointer transition-all ease-in-out duration-700 rounded-xl mb-8">
+                <div class="w-full h-[150px]">
+                    <img src="../src/assets/images/pexels-mikael-blomkvist-6476260.jpg" alt="seo">
+                </div>
+                <h1 class="text-2xl md:px-2 text-gray-800 md:py-1 mt-16 pb-1 pt-4 font-bold">Social Media Management</h1>
+                <p class="md:px-2 md:py-1">
+                    Le social media management dans une entreprise est la capacité à créer et à entretenir une présence en ligne 
+                    significative. Cela permet d'engager activement avec les clients et les prospects, de répondre 
+                    à leurs questions, de recueillir des commentaires et d'améliorer la réputation de l'entreprise.
+                </p>
+            </div>
+
+            <div class="w-[300px] h-[450px] bg-slate-100 overflow-hidden hover:translate-y-3 shadow-2xl hover:cursor-pointer transition-all ease-in-out duration-700 rounded-xl mb-8">
+                <div class="w-full h-[150px]">
+                    <img src="../src/assets/images/pexels-roberto-nickson-3082341.jpg" alt="seo">
+                </div>
+                <h1 class="text-2xl md:px-2 text-gray-800 md:py-1 mt-16 pb-1 pt-4 font-bold">Graphic Design</h1>
+                <p class="md:px-2 md:py-1">
+                    Que ce soit à travers la conception de logos, d'infographies, d'éléments marketing 
+                    ou même d'interfaces utilisateur, le graphic design aide à captiver 
+                    l'attention du public cible et à renforcer l'identité visuelle d'une entreprise.
+                </p>
+            </div>
+
+            <div class="w-[300px] h-[450px] bg-slate-100 overflow-hidden hover:translate-y-3 shadow-2xl hover:cursor-pointer transition-all ease-in-out duration-700 rounded-xl mb-8">
+                <div class="w-full h-[150px]">
+                    <img src="../src/assets/images/pexels-kelly-4041405.jpg" alt="seo">
+                </div>
+                <h1 class="text-2xl md:px-2 text-gray-800 md:py-1 mt-16 pb-1 pt-4 font-bold">Montage vidéo</h1>
+                <p class="md:px-2 md:py-1">
+                    Cela peut avoir un impact significatif sur l'engagement des spectateurs 
+                    et sur l'efficacité globale de la communication vidéo, 
+                    que ce soit à des fins promotionnelles, éducatives ou de divertissement.
+                </p>
+            </div>
+
+            <div class="w-[300px] h-[450px] bg-slate-100 overflow-hidden hover:translate-y-3 shadow-2xl hover:cursor-pointer transition-all ease-in-out duration-700 rounded-xl mb-8">
+                <div class="w-full h-[150px]">
+                    <img src="../src/assets/images/pexels-visual-tag-mx-2566573.jpg" alt="seo">
+                </div>
+                <h1 class="text-2xl md:px-2 text-gray-800 md:py-1 mt-16 pb-1 pt-4 font-bold">Création de sites vitrines</h1>
+                <p class="md:px-2 md:py-1">
+                    Notre prestation web est multiple : cahier des charges web, audit site internet, design des 
+                    maquettes et conception graphique, développement web sur-mesure, ainsi que votre 
+                    communication web : référencement naturel & référencement payant et social média.​
+                </p>
+            </div>
+
+
+        </div>
+
+        
+    </div>
+
+    <!------------- Appointment ------------->
+
+    <div id="contact" class="w-full bg-orange-400 md:flex md:justify-between md:items-center grid grid-cols-1 gap-14 h-max pb-8">
+
+        <div class="md:w-1/3  md:ml-24 ml-4 mb-4 mt-4 h-[400px] w-[300px]">
+            <h1 class="text-white text-lg underline decoration-white decoration-8 font-bold" style="animation: fade-in-left 3s;">CONTACTEZ NOUS</h1>
+            <h1 class="text-4xl text-gray-800 leading-tight font-bold pt-4 pb-4" style="animation: fade-in-left 3s;">Booster le chiffre d'affaire de votre entreprise</h1>
+
+            <p class="text-white pb-10" style="animation: fade-in-left 3s;">
+                Une gestion efficace des médias sociaux peut contribuer à renforcer 
+                la notoriété de la marque et à stimuler l'engagement des clients.
+            </p>
+
+            <button class="font-bold text-white bg-slate-800 py-4 px-12 rounded-full hover:bg-slate-600" style="animation: fade-in-left 3s;">Un expert</button>
+            <button class="font-bold text-gray-800 border border-gray-800 md:ml-3 mt-2 py-4 px-12 rounded-full hover:bg-slate-800 hover:text-white" style="animation: fade-in-left 3s;">Recevoir un dévis</button>
+        </div>
+
+        <div class="md:w-1/3 md:h-[400px] bg-white md:mr-40 md:ml-10 ml-4 rounded-xl h-[450px] w-[350px]">
+            <div class="md:mx-12 ml-14 my-8">
+                <h1 class="text-4xl text-gray-800 leading-tight font-bold pt-1 mb-4 mt-4">Prenez rendez vous</h1>
+
+                <!--<select class="bg-slate-100 px-3 text-gray-500 py-3 rounded-lg mb-3" name="" id="">
+                    <option value="">Choose Department</option>
+                </select>
+
+                <select class="bg-slate-100 px-9 text-gray-500 py-3 rounded-lg" name="" id="">
+                    <option value="">Select Doctor</option>
+                </select>-->
+                <input class="bg-slate-100 px-1 text-gray-500 py-3 md:w-[370px] w-[270px] rounded-lg mb-3" type="text" placeholder="Votre nom">
+                <input class="bg-slate-100 px-1 text-gray-500 py-3 md:w-[370px] w-[270px] rounded-lg mb-3" type="email" placeholder="Email">
+                <input class="bg-slate-100 px-1 text-gray-500 py-3 md:w-[370px] w-[270px] rounded-lg mb-4" type="text" placeholder="Contact">
+                <input class="bg-slate-100 px-1 text-gray-500 py-3 md:w-[370px] w-[270px] rounded-lg mb-4" type="date">
+
+                <button class="font-bold text-white px-20 py-2 bg-orange-500 rounded-lg md:ml-7 hover:bg-none">Envoyez</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!------------- Medical Package ---------
+
+    <section id="medical_package" class="md:h-screen w-full h-max">
+        <div class="text-center mt-8">
+            <h1 class="text-sky-400 font-bold underline decoration-slate-400 decoration-8">MEDICAL PACKAGES</h1>
+            <h1 class="mt-6 text-5xl text-gray-800 font-bold">Awesome Medical Programs</h1>
+        </div>
+
+        <div class="h-5/6 w-full -mt-4">
+            <div style="height: 200px; width: 80%; border-radius: 32.5px 32.5px 200px 200px;" class="mx-40 mt-96 bg-sky-400 flex justify-around items-center pb-80">
+
+                <div class="text-center mb-28 ml-10 bg-white rounded-xl overflow-hidden" style="width: 28%; height: 500px;">
+                    <div class="h-1/2 w-full text-center rounded-ss-xl text-white" style="background-image: url(../src/assets/images/blog-1.jpg); background-size: cover; background-position: center;">
+                        <h1 class="text-white font-bold text-2xl pt-8 pb-2">Pregnancy Care</h1>
+                        <p><span>$</span><span class="text-6xl font-bold">49</span>/year</p>
+                    </div>
+                    <div class="text-gray-400 mt-3">
+                        <h1 class="py-1">Emergency Medical Treatment</h1>
+                        <h2 class="py-1">Highly Experienced Doctors</h2>
+                        <h3 class="py-1">Highest Success Rate</h3>
+                        <h4 class="py-1">Telephone Service</h4>
+
+                        <button class="bg-sky-400 font-bold mt-2 py-4 px-10 rounded-full text-white">Apply Now</button>
+                    </div>
+                </div>
+    
+                <div class="text-center mb-28  bg-white rounded-xl overflow-hidden" style="width: 28%; height: 500px;">
+                    <div class="h-1/2 w-full text-center rounded-ss-xl text-white" style="background-image: url(../src/assets/images/blog-2.jpg); background-size: cover; background-position: center;">
+                        <h1 class="text-white font-bold text-2xl pt-8 pb-2">Health Checkup</h1>
+                        <p><span class="-top-8">$</span><span class="text-6xl font-bold">99</span>/year</p>
+                    </div>
+                    <div class="text-gray-400 mt-3">
+                        <h1 class="py-1">Emergency Medical Treatment</h1>
+                        <h2 class="py-1">Highly Experienced Doctors</h2>
+                        <h3 class="py-1">Highest Success Rate</h3>
+                        <h4 class="py-1">Telephone Service</h4>
+
+                        <button class="bg-sky-400 font-bold mt-2 py-4 px-10 rounded-full text-white">Apply Now</button>
+                    </div>
+                </div>
+                
+                <div class="text-center mb-28 mr-10 bg-white rounded-xl overflow-hidden" style="width: 28%; height: 500px;">
+                    <div class="h-1/2 w-full text-center rounded-ss-xl text-white" style="background-image: url(../src/assets/images/price-3.jpg); background-size: cover; background-position: center;">
+                        <h1 class="text-white font-bold text-2xl pt-8 pb-2">Dental Care</h1>
+                        <p><span>$</span><span class="text-6xl font-bold">149</span>/year</p>
+                    </div>
+                    <div class="text-gray-400 mt-3">
+                        <h1 class="py-1">Emergency Medical Treatment</h1>
+                        <h2 class="py-1">Highly Experienced Doctors</h2>
+                        <h3 class="py-1">Highest Success Rate</h3>
+                        <h4 class="py-1">Telephone Service</h4>
+
+                        <button class="bg-sky-400 font-bold mt-2 py-4 px-10 rounded-full text-white">Apply Now</button>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="flex justify-between items-center">
+                <div class="h-14 w-14 text-center pt-4 bg-white text-sky-500 rounded-full -mt-32 hover:bg-slate-800" style="margin-left: 610px;">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+
+                <div class="h-14 w-14 text-center pt-4 bg-white text-sky-500 rounded-full -mt-32 hover:bg-slate-800" style="margin-right: 610px;">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </section> --------->
+
+    <!------------- Notre équipe ------------->
+
+    <section id="Doctors" class="md:h-screen h-max w-full mt-24">
+        <div class="text-center mt-8">
+            <h1 class="text-orange-500 font-bold underline decoration-slate-400 decoration-8">NOTRE EQUIPE</h1>
+            <h1 class="mt-6 text-5xl text-gray-800 font-bold">Notre équipe d'experts qualifiés et professionels</h1>
+        </div>
+
+        <div class="md:flex md:justify-between md:items-center grid grid-cols-1">
+            <div class="bg-slate-100 md:w-1/2 w-screen md:flex md:justify-between grid grid-cols-1 md:ml-16 mt-16 rounded-xl md:h-[400px] overflow-hidden">
+                <div class="md:h-full h-1/2">
+                    <img class="object-cover md:h-full md:w-[500px] w-screen object-center " src="../src/assets/images/WhatsApp Image 2024-04-05 à 19.21.05_5e21f6ee.jpg" alt="">
+                </div>
+
+                <div class="ml-8">
+                    <h1 class="text-gray-800 text-2xl font-bold mt-16 mb-4">Neilly Baleng</h1>
+                    <h3 class="text-orange-500 font-bold mb-8">Social media manager / Creatrice de contenu</h3>
+
+                    <p class="text-gray-500 mr-8">
+                        Travailleuse passionnée et professionelle, elle transforme vos 
+                        idées en une réalité tout aussi à couper le souffle. 
+                    </p>
+
+                    <hr class="-ml-8 mt-12">
+                    <div class="flex justify-between items-center mr-40 mt-7 mb-8">
+                        <div class="h-14 w-14 text-white bg-sky-400 text-xl rounded-full text-center pt-3.5">
+                            <i class="fa-brands fa-facebook px-2"></i>
+                        </div>
+                        <div class="h-14 w-14 text-white bg-sky-400 text-xl rounded-full text-center pt-3.5">
+                            <i class="fa-brands fa-twitter px-2"></i>
+                        </div>
+                        <div class="h-14 w-14 text-white bg-sky-400 text-xl rounded-full text-center pt-3.5">
+                            <i class="fa-brands fa-linkedin px-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-100 md:w-1/2 w-screen md:flex md:justify-between grid grid-cols-1 md:h-[400px] md:ml-8 md:mr-16 mt-16 rounded-xl overflow-hidden">
+                <div class="md:h-full h-1/2">
+                    <img class="object-cover md:h-full md:w-[500px] w-full object-center" src="../src/assets/images/FM2.jpg" alt="image">
+                </div>
+
+                <div class="ml-8">
+                    <h1 class="text-gray-800 text-2xl font-bold mt-16 mb-4">Franck Mbieleu</h1>
+                    <h3 class="text-orange-500 font-bold mb-8">Développeur web et mobile / Data analyst</h3>
+
+                    <p class="text-gray-500 mr-8">
+                        Respect des délais, discipline et qualité, telles sont 
+                        les valeurs de notre Data analyst / Dev
+                    </p>
+
+                    <hr class="-ml-8 mt-12">
+                    <div class="flex justify-between items-center mr-40 mt-7 mb-8">
+                        <div class="h-14 w-14 text-white bg-sky-800 text-xl rounded-full text-center pt-3.5">
+                            <i class="fa-brands fa-facebook px-2"></i>
+                        </div>
+                        <div class="h-14 w-14 text-white bg-sky-400 text-xl rounded-full text-center pt-3.5">
+                            <i class="fa-brands fa-twitter px-2"></i>
+                        </div>
+                        <div class="h-14 w-14 text-blue-700 bg-gray-300 text-xl rounded-full text-center pt-3.5">
+                            <i class="fa-brands fa-linkedin px-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!------------- Quantico-immo ------------->
+
+    <section class="mt-2 md:h-96 h-max container mx-auto p-4">
+        <div class="text-center mt-8">
+            <h1 class="text-orange-500 font-bold underline decoration-slate-400 decoration-8">QUANTICO-IMMO</h1>
+            <h1 class="mt-4  text-2xl md:text-5xl text-gray-800 font-bold">Notre logiciel de gestion locative intuitif et immersif</h1>
+        </div>
+    </section>
+
+    <section class="mt-20 md:h-screen h-max container mx-auto mb-10" >
+        <img src="./assets/images/immo2.jpg" alt="" class="md:ml-10">
+        <p class=" mx-20 w-2/4 text-gray-500">
+            Découvrez notre application desktop de gestion locative, conçue pour faciliter la gestion de vos biens immobiliers. 
+            Gérer vos propriétés, maisons et locataires n'a jamais été aussi simple. Avec des fonctionnalités avancées telles 
+            que le suivi des charges, la gestion des paiements de loyers et une facturation intuitive, notre solution vous aide 
+            à optimiser votre temps et à améliorer votre efficacité. Transformez votre expérience de gestion locative avec une 
+            interface conviviale et des outils performants, adaptés aux besoins des propriétaires et des gestionnaires immobiliers. 
+            Essayez-la dès aujourd'hui et simplifiez votre quotidien !
+        </p>
+
+        <button class="font-bold text-gray-800 border  ml-10 border-gray-800 md:ml-24 mt-4 py-4 px-12 rounded-full hover:bg-slate-800 hover:text-white" style="animation: fade-in-left 3s;"><a href="./quantico.html">Découvrir</a></button>
+    </section>
+
+    
+
+    <!------------- Footer ------------->
+    <section class="mt-20 md:h-screen h-max container mx-auto mb-10 grid grid-cols-1" style="height: 80vh;" id="footer">
+        <div class="grid grid-cols-2 footer1">
+            <div class=" w-[200px]">
+                <img src="./assets/images/qm_logo.jpg" alt="">
+            </div>
+            <div class="mt-4">
+                <h3 class="text-xl font-bold">Abonnez-vous à notre newsletter</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <input type="email" placeholder="Entrez votre email" class="border-none">
+                    <button class="font-bold text-gray-800 border  ml-10 border-gray-800 md:ml-24 mt-4 py-2 px-12 rounded-full hover:bg-slate-800 hover:text-white"><a href="#">S'inscrire</a></button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="flex flex-row mb-8 footer2">
+            <div class="mx-auto grid grid-cols-1 foot">
+                <h4 class="text-xl font-bold">Entreprise</h4>
+                <a href="#" class="hover:text-orange-500">Accueil</a>
+                <a href="#" class="hover:text-orange-500">A propos de nous</a>
+                <a href="#" class="hover:text-orange-500">Nos services</a>
+                <a href="#" class="hover:text-orange-500">Quantico-Immo</a>
+            </div>
+            <div class="mx-auto grid grid-cols-1 foot">
+                <h4 class="text-xl font-bold">Ressources</h4>
+                <a href="#" class="hover:text-orange-500">FAQ</a>
+                <a href="#" class="hover:text-orange-500">Politique de confidentialité</a>
+                <a href="#" class="hover:text-orange-500">Nous contacter</a>
+            </div>
+            <div class="mx-auto grid grid-cols-1 foot">
+                <h4 class="text-xl font-bold">Réseaux sociaux</h4>
+                <a href="#"><i class="fa-brands fa-facebook px-2"></i>Facebook</a>
+                <a href="#"><i class="fa-brands fa-instagram px-2"></i>Instagram</a>
+                <a href="#"><i class="fa-brands fa-linkedin px-2"></i>LinkedIn</a>
+            </div>
+        </div>
+        <hr>
+        <div>
+            Copyright © QUANTICO MEDIA 2024 | Designed by Quantico-media
+        </div>
+    </section>
+
+
+    <script>
+        function toggleMenu() {
+          var topBar = document.getElementById("topBar");
+          topBar.classList.toggle("responsive");
+        }
+    </script>
+    
+</body>
+</html>
